@@ -1,0 +1,6 @@
+{
+  "name": "میوهیار",
+  "description": "مدیریت جامع فروش، خرید، انبار و حسابداری میوه و تره‌بار با تقویم شمسی و ارز تومان",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
