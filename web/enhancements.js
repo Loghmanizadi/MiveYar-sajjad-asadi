@@ -61,7 +61,7 @@
   window.renderReport=function(){
     const rows=allRows(),host=document.getElementById('report-result');if(!host)return;
     const totals=rows.reduce((a,r)=>{for(const [k,v] of Object.entries(r))if(/تومان$/.test(k)&&Number.isFinite(Number(v)))a[k]=(a[k]||0)+Number(v);return a},{});
-    host.innerHTML='<div class="metrics"><div class="metric"><div class="label">تعداد رکوردها</div><strong>'+faNum(rows.length)+'</strong></div><div class="metric"><div class="label">جمع مبلغ‌های دارای مقدار</div><strong>'+money(Object.entries(totals).filter(([k])=>/مبلغ_تومان|جمع_کل_تومان|مبلغ_پایه|مانده_تومان/.test(k)).reduce((s,[,v])=>s+v,0))+'</strong></div></div>'+htmlTable(rows);
+    host.innerHTML='<div class="metrics"><div class="metric"><div class="label">تعداد رکوردها</div><strong>'+faNum(rows.length)+'</strong></div><div class="metric"><div class="label">بازه گزارش</div><strong style="font-size:15px">'+esc((fromEl?.value||'ابتدا')+' تا '+(toEl?.value||'امروز / همه سوابق'))+'</strong></div></div>'+htmlTable(rows);
     window.__miveyarCurrentReport=rows;
   };
   window.exportCSV=function(){
@@ -79,5 +79,5 @@
   };
   // Date stamps for staff/driver records are attached at creation where possible without changing prior records.
   const oldSaveForm=saveForm;window.saveForm=function(e){const prior=formType;oldSaveForm(e);if(['person','driver'].includes(prior)){const key=prior==='person'?'people':'drivers';const latest=db[key]?.[0];if(latest&&!latest.createdAt){latest.createdAt=timestamp();persist()}}};
-  renderAdvances();
+  renderPeople();renderAdvances();
 })();
