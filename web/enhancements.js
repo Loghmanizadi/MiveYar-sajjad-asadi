@@ -7,18 +7,28 @@
   if(!Array.isArray(db.advances))db.advances=[];
   if(!Array.isArray(db.dailyClosings))db.dailyClosings=[];
   if(Array.isArray(db.products)){
-    const existing=new Set(db.products.map(p=>String(p.name||'').trim()));
-    let n=0;catalog.forEach(name=>{if(!existing.has(name)){db.products.push({id:'pcat_'+(++n)+'_'+name.replace(/\s/g,'').slice(0,5),name});existing.add(name)}});
-    try{localStorage.setItem(KEY,JSON.stringify(db))}catch(e){}
+    const normalizeName=s=>String(s||'').normalize('NFC').trim().replace(/\s+/g,' ');
+    const existing=new Set(db.products.map(p=>normalizeName(p.name)));
+    let changed=false;
+    catalog.forEach(name=>{
+      const clean=normalizeName(name);
+      if(!existing.has(clean)){
+        const base='pcat_'+clean.replace(/[^\p{L}\p{N}]/gu,'').slice(0,18);
+        let id=base, suffix=2;
+        while(db.products.some(p=>String(p.id)===id)) id=base+'_'+(suffix++);
+        db.products.push({id,name:clean}); existing.add(clean); changed=true;
+      }
+    });
+    if(changed){try{localStorage.setItem(KEY,JSON.stringify(db))}catch(e){}}
   }
   const peopleView=document.getElementById('view-people');
   if(peopleView&&!document.getElementById('advance-modal')){
     const modal=document.createElement('div');modal.id='advance-modal';modal.className='overlay';
     modal.innerHTML='<div class="modal"><div class="modalhead"><h3>ثبت مساعده پرسنل</h3><button type="button" class="x" id="advance-close">✕</button></div><form id="advance-form"><div class="formgrid"><div class="field"><label>تاریخ شمسی</label><input name="date" required></div><div class="field"><label>نام پرسنل</label><select name="personId" required></select></div><div class="field"><label>مبلغ مساعده (تومان)</label><input name="amount" type="number" min="0.01" step="0.01" required></div><div class="field"><label>روش پرداخت</label><select name="method"><option>نقدی</option><option>کارت‌به‌کارت</option><option>کارت‌خوان</option><option>سایر</option></select></div><div class="field full"><label>توضیحات / علت</label><input name="notes" placeholder="اختیاری"></div></div><div class="form-actions"><button class="btn" type="submit">ذخیره مساعده</button><button class="btn secondary" type="button" id="advance-cancel">انصراف</button></div></form></div>';
     document.body.appendChild(modal);
-    window.openAdvanceForm=()=>{const f=modal.querySelector('form');f.reset();f.elements.date.value=today();const people=db.people.filter(p=>['پرسنل','صندوق‌دار','فروشنده'].includes(p.role||'پرسنل'));f.elements.personId.innerHTML=people.map(p=>'<option value="'+esc(p.id)+'">'+esc(p.name)+' · '+esc(p.role||'پرسنل')+'</option>').join('');if(!people.length){toast('ابتدا از بخش افراد، پرسنل را ثبت کن');return}modal.classList.add('show')};
+    window.openAdvanceForm=()=>{const f=modal.querySelector('form');f.reset();f.elements.date.value=today();const people=db.people.filter(p=>String(p.name||'').trim());f.elements.personId.innerHTML=people.map(p=>'<option value="'+esc(p.id)+'">'+esc(p.name)+' · '+esc(p.role||'پرسنل')+'</option>').join('');if(!people.length){toast('ابتدا از بخش افراد، پرسنل را ثبت کن');return}modal.classList.add('show')};
     const close=()=>modal.classList.remove('show');modal.querySelector('#advance-close').onclick=modal.querySelector('#advance-cancel').onclick=close;modal.addEventListener('click',e=>{if(e.target===modal)close()});
-    modal.querySelector('form').addEventListener('submit',e=>{e.preventDefault();const f=e.currentTarget;const item={id:uid(),date:f.elements.date.value,personId:f.elements.personId.value,amount:Number(f.elements.amount.value||0),method:f.elements.method.value,notes:f.elements.notes.value,createdAt:timestamp()};db.advances.unshift(item);persist();renderAdvances();close();toast('مساعده پرسنل ثبت شد')});
+    modal.querySelector('form').addEventListener('submit',e=>{e.preventDefault();const f=e.currentTarget;const amount=Number(f.elements.amount.value||0);if(!Number.isFinite(amount)||amount<=0){toast('مبلغ مساعده باید بیشتر از صفر باشد');return}if(!db.people.some(p=>p.id===f.elements.personId.value)){toast('پرسنل انتخاب‌شده معتبر نیست؛ فهرست را بررسی کن');return}const item={id:uid(),date:cleanDate(f.elements.date.value),personId:f.elements.personId.value,amount,method:f.elements.method.value,notes:f.elements.notes.value.trim(),createdAt:timestamp()};db.advances.unshift(item);persist();renderAdvances();close();toast('مساعده پرسنل ثبت شد')});
   }
   function renderAdvances(){
     const host=document.getElementById('advances-list');if(!host)return;
