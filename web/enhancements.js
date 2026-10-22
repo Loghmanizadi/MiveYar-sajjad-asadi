@@ -29,9 +29,9 @@
   const oldRenderPeople=renderPeople;renderPeople=function(){oldRenderPeople();renderAdvances()};
   const oldRenderAll=renderAll;renderAll=function(){oldRenderAll();renderAdvances()};
   const period=document.getElementById('r-period'),fromEl=document.getElementById('r-from'),toEl=document.getElementById('r-to'),typeEl=document.getElementById('r-type'),queryEl=document.getElementById('r-query');
-  function fmtJ(d){return new Intl.DateTimeFormat('en-CA-u-ca-persian',{timeZone:'Asia/Tehran',year:'numeric',month:'2-digit',day:'2-digit'}).format(d).replace(/-/g,'/')}
+  function fmtJ(d){const p=new Intl.DateTimeFormat('en-US-u-ca-persian',{timeZone:'Asia/Tehran',year:'numeric',month:'numeric',day:'numeric'}).formatToParts(d);const y=p.find(x=>x.type==='year').value,m=p.find(x=>x.type==='month').value,day=p.find(x=>x.type==='day').value;return String(y).padStart(4,'0')+'/'+String(m).padStart(2,'0')+'/'+String(day).padStart(2,'0')}
   function jparts(d){const p=new Intl.DateTimeFormat('en-US-u-ca-persian',{timeZone:'Asia/Tehran',year:'numeric',month:'numeric',day:'numeric'}).formatToParts(d);return {y:+p.find(x=>x.type==='year').value,m:+p.find(x=>x.type==='month').value,d:+p.find(x=>x.type==='day').value}}
-  function shiftMonths(date,delta){const p=jparts(date);let idx=p.y*12+(p.m-1)+delta,y=Math.floor(idx/12),m=((idx%12)+12)%12+1;let day=Math.min(p.d,31);for(let k=day;k>=1;k--){const candidate=String(y).padStart(4,'0')+'/'+String(m).padStart(2,'0')+'/'+String(k).padStart(2,'0');if(k>=1)return candidate}return ''}
+  function shiftMonths(date,delta){const p=jparts(date);let idx=p.y*12+(p.m-1)+delta,y=Math.floor(idx/12),m=((idx%12)+12)%12+1;let day=Math.min(p.d,m<=6?31:m<=11?30:29);for(let k=day;k>=1;k--){const candidate=String(y).padStart(4,'0')+'/'+String(m).padStart(2,'0')+'/'+String(k).padStart(2,'0');if(k>=1)return candidate}return ''}
   function presetRange(){
     if(!period||period.value==='custom')return;
     const now=new Date(),end=fmtJ(now);let start='';
@@ -43,7 +43,7 @@
   if(period)period.addEventListener('change',presetRange);
   if(fromEl&&toEl){fromEl.addEventListener('input',()=>{if(period)period.value='custom'});toEl.addEventListener('input',()=>{if(period)period.value='custom'})}
   function dateNum(s){const a=cleanDate(s).split('/').map(Number);return a.length===3?a[0]*10000+a[1]*100+a[2]:0}
-  function inRange(x,stall){const d=dateNum(x.date);const f=dateNum(fromEl?.value),t=dateNum(toEl?.value);return (!f||d>=f)&&(!t||d<=t)&&(!stall||x.stallId===stall)}
+  function inRange(x,stall){const d=dateNum(x.date);const f=dateNum(fromEl?.value),t=dateNum(toEl?.value);return (!f||d>=f)&&(!t||d<=t)&&(!stall||!x.stallId||x.stallId===stall)}
   function allRows(){
     const rows=[],stall=document.getElementById('r-stall')?.value||'',q=(queryEl?.value||'').trim().toLowerCase(),type=typeEl?.value||'all';
     const add=(kind,x,recordDate,stallId,searchText,values)=>{if(!inRange({date:recordDate||'' ,stallId},stall))return;if(q&&!String(searchText||'').toLowerCase().includes(q))return;rows.push({kind,date:recordDate||'',stall:nameOf(db.stalls,stallId),...values})};
