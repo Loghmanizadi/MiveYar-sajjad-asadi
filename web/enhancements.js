@@ -36,7 +36,8 @@
     host.querySelectorAll('[data-advance-report]').forEach(b=>b.onclick=()=>{const x=db.advances.find(a=>a.id===b.dataset.advanceReport);if(x)alert('مساعده پرسنل\nنام: '+nameOf(db.people,x.personId)+'\nتاریخ: '+x.date+'\nمبلغ: '+money(x.amount)+'\nروش: '+(x.method||'')+'\nتوضیحات: '+(x.notes||''))});
     host.querySelectorAll('[data-advance-delete]').forEach(b=>b.onclick=()=>{if(confirm('این مساعده حذف شود؟')){db.advances=db.advances.filter(a=>a.id!==b.dataset.advanceDelete);persist();renderAdvances()}});
   }
-  const oldRenderPeople=renderPeople;renderPeople=function(){oldRenderPeople();renderAdvances()};
+  window.filterProducts=()=>{const q=(document.getElementById('product-search')?.value||'').trim().toLocaleLowerCase('fa');document.querySelectorAll('#products-list .item').forEach(el=>{el.hidden=!!q&&!el.textContent.toLocaleLowerCase('fa').includes(q)})};
+  const oldRenderPeople=renderPeople;renderPeople=function(){oldRenderPeople();renderAdvances();window.filterProducts?.()};
   const oldRenderAll=renderAll;renderAll=function(){oldRenderAll();renderAdvances()};
   const period=document.getElementById('r-period'),fromEl=document.getElementById('r-from'),toEl=document.getElementById('r-to'),typeEl=document.getElementById('r-type'),queryEl=document.getElementById('r-query');
   function fmtJ(d){const p=new Intl.DateTimeFormat('en-US-u-ca-persian',{timeZone:'Asia/Tehran',year:'numeric',month:'numeric',day:'numeric'}).formatToParts(d);const y=p.find(x=>x.type==='year').value,m=p.find(x=>x.type==='month').value,day=p.find(x=>x.type==='day').value;return String(y).padStart(4,'0')+'/'+String(m).padStart(2,'0')+'/'+String(day).padStart(2,'0')}
