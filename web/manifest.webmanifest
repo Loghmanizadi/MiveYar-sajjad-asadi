@@ -1,0 +1,12 @@
+{
+  "name": "میوه‌یار | مدیریت میوه‌فروشی",
+  "short_name": "میوه‌یار",
+  "lang": "fa",
+  "dir": "rtl",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f7f5",
+  "theme_color": "#087f5b",
+  "description": "مدیریت خرید بار، فروش، غرفه‌ها و حساب‌وکتاب میوه‌فروشی"
+}
