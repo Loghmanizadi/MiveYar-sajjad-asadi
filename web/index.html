@@ -247,6 +247,47 @@ body{background:radial-gradient(ellipse at 0 0,#d2efd9 0,transparent 34%),radial
 @media(min-width:700px){.mv-welcome-art{height:285px}.mv-welcome-content{padding-bottom:20px}}
 @media(prefers-reduced-motion:reduce){.mv-art-fruits .fruit{animation:none!important}.mv-welcome,.mv-start-button{transition:none!important}}
 
+
+/* Screen 2 dashboard reference implementation */
+.top{position:relative;isolation:isolate;margin:0 -14px 16px;padding:17px 17px 18px!important;border-radius:0 0 27px 27px;background:linear-gradient(125deg,#07543d 0%,#087b55 54%,#0ba56c 100%);color:#fff;box-shadow:inset 0 -1px 0 #ffffff30,0 9px 24px #07543d20!important}
+.top:after{content:"";position:absolute;z-index:-1;width:190px;height:190px;right:-65px;top:-95px;border-radius:50%;background:#ffffff0d;box-shadow:0 0 0 25px #ffffff08,0 0 0 50px #ffffff05}
+.top .brand h1{color:#fff;font-size:23px!important}.top .brand p{color:#d7f1e3!important}.top .logo{background:linear-gradient(145deg,#ffffff35,#ffffff12)!important;border:1px solid #ffffff45;box-shadow:inset 0 2px 0 #ffffff4a,0 5px 0 #003d2a20!important}
+.top-actions{display:flex;align-items:center;gap:8px}.top .datebox{min-width:88px;border:1px solid #ffffff40!important;background:#ffffff16!important;color:#d8f1e5!important;box-shadow:inset 0 1px 0 #ffffff2a!important}.top .datebox strong{color:#fff!important}.top .datebox span{color:#d8f1e5}.mv-menu-button{width:39px;height:39px;border-radius:13px;border:1px solid #ffffff40;background:#ffffff17;color:#fff;font-size:23px;line-height:1;box-shadow:inset 0 1px 0 #ffffff35}
+#view-home .hero{min-height:155px;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:19px 16px 17px 19px!important;border-radius:25px!important;background:linear-gradient(120deg,#08784f,#10a875)!important;box-shadow:inset 0 2px 0 #ffffff58,0 5px 0 #076b4a22,0 14px 26px #087f5b25!important}
+#view-home .hero:after{content:none!important}
+.mv-hero-copy{position:relative;z-index:2;flex:1;min-width:0}.mv-hero-copy small{display:inline-block;color:#d6f7e5;background:#ffffff19;border:1px solid #ffffff25;padding:5px 9px;border-radius:999px;font-size:10px}
+#view-home .hero h2{font-size:clamp(19px,4.9vw,25px)!important;line-height:1.7;margin:9px 0 5px!important}
+#view-home .hero p{max-width:100%!important;color:#e1f8eb;font-size:11px!important;line-height:1.9}
+.mv-store-art{position:relative;flex:0 0 112px;width:112px;height:115px;margin:0 1px 0 0;filter:drop-shadow(0 8px 6px #003e2a35);animation:mvStoreFloat 4s ease-in-out infinite}
+.mv-store-roof{position:absolute;top:9px;left:8px;width:95px;height:36px;border-radius:9px 9px 4px 4px;transform:perspective(70px) rotateX(8deg);background:linear-gradient(160deg,#f9d27d,#e59b37);border:2px solid #f9df9e;box-shadow:inset 0 3px 0 #fff5ce,0 4px 0 #9d612b}
+.mv-store-awning{position:absolute;top:37px;left:8px;width:95px;height:20px;display:flex;overflow:hidden;border-radius:3px 3px 6px 6px;box-shadow:0 3px 0 #064e38}
+.mv-store-awning i{flex:1;background:linear-gradient(90deg,#fff3d3,#fffdf0);border-right:1px solid #dfd3a9}.mv-store-awning i:nth-child(even){background:linear-gradient(90deg,#f4a74c,#d77a2a)}
+.mv-store-body{position:absolute;top:54px;left:13px;width:86px;height:49px;border-radius:3px 3px 9px 9px;background:linear-gradient(135deg,#ffe6a7,#f6c96d);border:2px solid #d49b45;box-shadow:inset 0 3px 0 #fff7cf}
+.mv-store-window{position:absolute;left:7px;top:6px;width:42px;height:33px;border:2px solid #b8dfcf;border-radius:5px;background:linear-gradient(145deg,#e9fff2,#9ad8bd);font-size:12px;line-height:16px;text-align:center}
+.mv-store-door{position:absolute;right:6px;bottom:0;width:23px;height:36px;border-radius:8px 8px 0 0;background:linear-gradient(90deg,#087c58,#07543d);border:2px solid #f9e4a7;border-bottom:0}
+.mv-store-base{position:absolute;bottom:5px;left:3px;width:106px;height:10px;border-radius:50%;background:#c8efcf;box-shadow:0 3px 0 #4f9b69}
+.mv-store-sun{position:absolute;right:0;top:-3px;color:#ffe69a;font-size:20px}.mv-store-leaf{position:absolute;left:-4px;top:56px;font-size:23px;transform:rotate(-32deg)}
+.mv-dashboard-label{display:flex;align-items:baseline;justify-content:space-between;margin:20px 3px 10px;color:#244c39}.mv-dashboard-label strong{font-size:14px}.mv-dashboard-label span{font-size:10px;color:#7e9687}
+#view-home .quick{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:11px!important;margin:0 0 17px!important}
+#view-home .quick button.mv-tile{min-height:112px!important;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:13px 8px 10px!important;border:1px solid #fff!important;border-bottom:5px solid #d8e9df!important;border-radius:21px!important;background:linear-gradient(145deg,#fff 0%,#f8fcf9 60%,#eaf6ee 100%)!important;box-shadow:inset 0 2px 0 #fff,0 4px 0 #c9ddd0,0 11px 20px #164b3514!important;color:#254a39!important;font-size:13px!important;font-weight:800!important;transform:translateZ(0)}
+#view-home .quick button.mv-tile span{width:49px;height:47px;display:grid!important;place-items:center;margin:0 0 5px!important;border-radius:16px;background:linear-gradient(145deg,#eef7ff,#dcecff);font-size:27px!important;filter:drop-shadow(0 3px 2px #183f3012)!important}
+#view-home .quick button.mv-tile small{font-size:9px;font-weight:500;color:#82968a;margin-top:3px}
+#view-home .quick .mv-tile-sale span{background:linear-gradient(145deg,#fff1dc,#ffe0b4)}
+#view-home .quick .mv-tile-products span{background:linear-gradient(145deg,#e7f8e9,#cdeed1)}
+#view-home .quick .mv-tile-people span{background:linear-gradient(145deg,#f2eaff,#e3d8ff)}
+#view-home .fruit-promo{position:relative;overflow:hidden;min-height:106px;display:flex;align-items:center;gap:10px;margin:0 0 18px!important;padding:13px!important;border-radius:22px!important;background:linear-gradient(110deg,#fff6d9 0%,#fffdf2 55%,#e6f7e9 100%)!important;border:1px solid #fff!important;border-bottom:5px solid #dce8d5!important;box-shadow:inset 0 2px 0 #fff,0 4px 0 #d4e5d7,0 10px 20px #164b3510!important}
+#view-home .fruit-promo-art{font-size:27px!important;min-width:67px;letter-spacing:-9px;filter:drop-shadow(0 5px 3px #315b3020)}
+#view-home .fruit-promo-copy strong{font-size:12px!important;color:#20563b}.fruit-promo-copy span{font-size:10px!important;line-height:1.8}
+#view-home .fruit-promo .btn{padding:8px 9px!important;font-size:9px!important;white-space:nowrap}
+#view-home .metrics{gap:10px!important;margin:16px 0 22px!important}
+#view-home .metric{min-height:114px;padding:15px 12px!important;border-radius:20px!important}
+#view-home .metric .label{font-size:10px!important}#view-home .metric strong{font-size:clamp(18px,4.2vw,23px)!important}
+#view-home .sectionhead h3{font-size:14px}
+@keyframes mvStoreFloat{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-5px) rotate(1deg)}}
+@media(min-width:700px){#view-home .hero{min-height:190px;padding:24px 28px!important}.mv-store-art{transform:scale(1.2);margin-right:18px}.top{border-radius:0 0 30px 30px}.top .brand h1{font-size:26px!important}#view-home .quick{grid-template-columns:repeat(4,minmax(0,1fr))!important}#view-home .quick button.mv-tile{min-height:142px!important}}
+@media(max-width:380px){.top{padding-left:12px!important;padding-right:12px!important}.top .brand{gap:7px}.top .brand h1{font-size:20px!important}.top .brand p{font-size:9px!important}.top .datebox{min-width:75px;padding:7px 6px!important}.mv-menu-button{width:34px;height:36px}#view-home .hero{padding:15px 12px!important}#view-home .hero h2{font-size:18px!important}#view-home .fruit-promo-art{min-width:48px;font-size:23px!important}#view-home .fruit-promo .btn{max-width:94px;white-space:normal;line-height:1.5}}
+@media(prefers-reduced-motion:reduce){.mv-store-art{animation:none!important}}
+
 </style>
 </head>
 <body>
@@ -282,11 +323,11 @@ body{background:radial-gradient(ellipse at 0 0,#d2efd9 0,transparent 34%),radial
 </section>
 
 <div class="app">
-<header class="top"><div class="brand"><div class="logo">🍏</div><div><h1>میوه‌یار</h1><p>مدیریت هوشمند میوه‌فروشی</p></div></div><div class="datebox">امروز<strong id="today">—</strong><span id="clock"></span></div></header>
+<header class="top"><div class="brand"><div class="logo">🍏</div><div><h1>میوه‌یار</h1><p>مدیریت هوشمند میوه‌فروشی</p></div></div><div class="top-actions"><div class="datebox">امروز<strong id="today">—</strong><span id="clock"></span></div><button class="mv-menu-button" aria-label="بازکردن منوی بیشتر" onclick="switchView('more')">☰</button></div></header>
 <main>
 <section class="view active" id="view-home">
-<div class="hero"><small>داشبورد کسب‌وکار</small><h2>سلام، خوش برگشتی! 👋</h2><p>امروز میوه‌یار کنارته تا خرید بار، فروش و حساب‌وکتاب روزانه‌ات را ساده‌تر مدیریت کنی.</p></div>
-<div class="quick"><button onclick="openForm('load')"><span>🛒</span>خرید بار</button><button onclick="openForm('sale')"><span>🧾</span>فروش روزانه</button><button onclick="switchView('products')"><span>🍎</span>محصولات</button><button onclick="switchView('people')"><span>👥</span>پرسنل</button></div>
+<div class="hero"><div class="mv-hero-copy"><small>داشبورد کسب‌وکار</small><h2>سلام، خوش برگشتی! 👋</h2><p>امروز یک قدم به مدیریت بهتر و فروش بیشتر نزدیک‌تری.</p></div><div class="mv-store-art" aria-hidden="true"><span class="mv-store-sun">✦</span><div class="mv-store-roof"></div><div class="mv-store-awning"><i></i><i></i><i></i><i></i></div><div class="mv-store-body"><div class="mv-store-window">🍎🍊<br>🍇🍐</div><div class="mv-store-door"></div></div><div class="mv-store-base"></div><span class="mv-store-leaf">🌿</span></div></div>
+<div class="mv-dashboard-label"><strong>دسترسی سریع</strong><span>کارهای روزانه</span></div><div class="quick"><button class="mv-tile mv-tile-load" onclick="openForm('load')"><span>🛒</span>خرید بار<small>ثبت بار جدید</small></button><button class="mv-tile mv-tile-sale" onclick="openForm('sale')"><span>🧾</span>فروش<small>ثبت فروش روزانه</small></button><button class="mv-tile mv-tile-products" onclick="switchView('products')"><span>🍎</span>محصولات<small>قیمت و موجودی</small></button><button class="mv-tile mv-tile-people" onclick="switchView('people')"><span>👥</span>پرسنل<small>افراد و مساعده</small></button></div>
 <div class="fruit-promo"><div class="fruit-promo-art" aria-hidden="true">🍊🍇🍎</div><div class="fruit-promo-copy"><strong>سود بیشتر با مدیریت بهتر</strong><span>گزارش‌ها و هزینه‌ها را یک‌جا بررسی کن.</span></div><button class="btn" onclick="switchView('reports')">مشاهده گزارش‌ها ←</button></div>
 <div class="metrics"><div class="metric"><div class="label">خرید امروز</div><strong id="m-buy">۰ تومان</strong><small>مجموع مبلغ پایه بارهای امروز</small></div><div class="metric"><div class="label">فروش امروز</div><strong id="m-sale">۰ تومان</strong><small>ثبت‌شده در فروشگاه</small></div><div class="metric"><div class="label">هزینه‌های امروز</div><strong id="m-expense">۰ تومان</strong><small>هزینه‌های جداگانه</small></div><div class="metric"><div class="label">وزن خرید امروز</div><strong id="m-weight">۰ کیلو</strong><small>تمام غرفه‌ها</small></div></div>
 <div class="sectionhead"><h3>آخرین خریدهای بار</h3><button class="btn secondary small" onclick="switchView('loads')">مشاهده همه</button></div><div class="list" id="recent-loads"></div>
