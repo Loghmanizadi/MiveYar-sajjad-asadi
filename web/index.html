@@ -123,6 +123,42 @@ html{background:#eef7f0}body{background:radial-gradient(ellipse at 0% 0%,#d8f0dc
 @media(max-width:520px){.app{padding-left:13px!important;padding-right:13px!important}.top{padding-top:14px!important}.hero{min-height:194px!important;padding:22px 18px!important;border-radius:27px!important}.hero p{max-width:83%!important;font-size:13px!important}.quick{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important;margin:16px 0 21px!important}.quick button{min-height:116px!important;border-radius:22px!important;padding:12px 4px!important;font-size:11px!important;gap:8px!important}.quick button span{font-size:31px!important}.metrics{gap:11px!important}.metric{padding:17px 12px!important;border-radius:22px!important}.metric .label{font-size:11px!important}.metric strong{font-size:22px!important}.metric small{font-size:10px!important}.nav button{font-size:9px!important;padding:8px 1px!important}.nav button span{font-size:21px!important}.sectionhead h3{font-size:15px!important}}
 @media(prefers-reduced-motion:reduce){.hero,.hero:after,.quick button,.quick button span,.view.active{animation:none!important;transition:none!important}}
 
+
+/* Mioveyar reference layout - final override */
+:root{--mv-green:#07875c;--mv-deep:#07563f;--mv-gold:#d9b45b;--mv-ink:#183d30;--mv-mist:#eef7f0}
+body{background:linear-gradient(135deg,#e1f2e5 0%,#f8fbf8 46%,#e6f3e9 100%)!important;background-attachment:fixed!important;color:var(--mv-ink)}
+.app{max-width:850px!important;padding-left:18px!important;padding-right:18px!important}
+.top{padding:17px 3px 18px!important}
+.logo{width:52px!important;height:52px!important;border-radius:18px!important;background:linear-gradient(145deg,#20b67b,#087653 60%,#064b36)!important;box-shadow:inset 0 2px 0 #ffffff7a,0 5px 0 #064b361a,0 12px 22px #087f5b30!important}
+.brand h1{font-size:23px!important;letter-spacing:-.4px}
+.datebox{border:1px solid #ffffff!important;border-radius:16px!important;background:linear-gradient(145deg,#fff,#eef8f1)!important;box-shadow:inset 0 2px 0 #fff,0 4px 0 #d5e7db,0 10px 20px #164b3510!important}
+.hero{min-height:198px!important;padding:25px 23px!important;border:1px solid #ffffff75!important;border-radius:30px!important;background:linear-gradient(120deg,#07543e 0%,#07805a 48%,#10a875 100%)!important;box-shadow:inset 0 2px 0 #ffffff55,inset 0 -12px 20px #003d2c22,0 8px 0 #075c4617,0 20px 36px #075c462d!important;animation:mvRefGlow 9s ease-in-out infinite!important;background-size:200% 200%!important}
+.hero:after{content:"🧺"!important;font-size:clamp(96px,24vw,145px)!important;left:8px!important;bottom:-28px!important;opacity:.28!important;filter:drop-shadow(0 16px 10px #003c2c50)!important;animation:mvRefFloat 4s ease-in-out infinite!important}
+.hero small{font-size:13px!important;opacity:.9}.hero h2{font-size:clamp(25px,5vw,33px)!important;margin:10px 0 12px!important;text-shadow:0 3px 12px #003d2c25}.hero p{font-size:14px!important;line-height:1.95!important;max-width:79%!important}
+.quick{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:13px!important;margin:18px 0 19px!important;perspective:900px}
+.quick button{min-height:125px!important;border:1px solid #fff!important;border-bottom:7px solid #d5e6dc!important;border-radius:25px!important;background:linear-gradient(145deg,#fff 0%,#fbfefc 58%,#edf7f0 100%)!important;box-shadow:inset 0 2px 0 #fff,0 5px 0 #c4d9cc,0 14px 24px #164b3518!important;color:#244a3b!important;font-size:14px!important;font-weight:800!important;animation:mvRefCard .6s cubic-bezier(.2,.8,.2,1) both}
+.quick button:nth-child(2){animation-delay:.06s}.quick button:nth-child(3){animation-delay:.12s}.quick button:nth-child(4){animation-delay:.18s}
+.quick button span{display:block!important;font-size:36px!important;margin-bottom:10px!important;filter:drop-shadow(0 6px 3px #173f3027)!important;animation:mvRefIcon 3.4s ease-in-out infinite}
+.fruit-promo{display:flex;align-items:center;gap:12px;margin:4px 0 22px;padding:15px 16px;border:1px solid #fff;border-radius:23px;background:linear-gradient(115deg,#fff7db,#fffdf2 52%,#e9f7e9);box-shadow:inset 0 2px 0 #fff,0 5px 0 #d9e8d9,0 12px 22px #164b3510;overflow:hidden}
+.fruit-promo-art{font-size:31px;letter-spacing:-10px;min-width:74px;filter:drop-shadow(0 5px 3px #163f3020)}
+.fruit-promo-copy{display:flex;flex-direction:column;gap:5px;flex:1;min-width:0}.fruit-promo-copy strong{font-size:14px;color:#20523c}.fruit-promo-copy span{font-size:11px;color:#71847a;line-height:1.7}
+.fruit-promo .btn{white-space:nowrap;font-size:11px;padding:10px 11px!important}
+.metrics{gap:13px!important;margin:18px 0 22px!important}
+.metric,.panel,.item{border:1px solid #fff!important;border-bottom:6px solid #d9e9df!important;border-radius:25px!important;background:linear-gradient(145deg,#fff 0%,#fbfefc 60%,#f0f8f3 100%)!important;box-shadow:inset 0 2px 0 #fff,0 5px 0 #c7dbce,0 15px 27px #164b3515!important}
+.metric{padding:20px 17px!important;position:relative;overflow:hidden}.metric:before{height:5px!important;opacity:1!important;background:linear-gradient(90deg,#e0b552,#18a875,#087653)!important;box-shadow:0 2px 7px #087f5b24}.metric .label{font-size:12px!important}.metric strong{font-size:clamp(22px,4vw,29px)!important}
+.sectionhead{margin:22px 2px 12px!important}.sectionhead h3{font-size:16px!important}
+.btn{border-bottom:4px solid #064f3c!important;box-shadow:inset 0 2px 0 #ffffff50,0 5px 0 #064e3b20,0 12px 20px #087f5b20!important}
+.nav{background:#f8fffbf5!important;backdrop-filter:blur(18px);box-shadow:0 -10px 35px #164b3516!important;border-top:1px solid #fff!important}
+.nav button.active{background:linear-gradient(145deg,#e4f7ed,#cdeedd)!important;border:1px solid #fff!important;box-shadow:inset 0 2px 0 #fff,0 4px 0 #b9ddc9,0 8px 16px #087f5b18!important;color:#087f5b!important}
+.view.active{animation:mvRefEnter .25s ease-out both!important}
+@keyframes mvRefGlow{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+@keyframes mvRefFloat{0%,100%{transform:translateY(0) rotate(-7deg)}50%{transform:translateY(-9px) rotate(5deg)}}
+@keyframes mvRefCard{from{opacity:.2;transform:translateY(12px) rotateX(6deg)}to{opacity:1;transform:translateY(0) rotateX(0)}}
+@keyframes mvRefIcon{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-4px) rotate(2deg)}}
+@keyframes mvRefEnter{from{opacity:.6;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:520px){.app{padding-left:13px!important;padding-right:13px!important}.hero{min-height:192px!important;padding:22px 18px!important;border-radius:27px!important}.hero p{max-width:86%!important;font-size:13px!important}.quick{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}.quick button{min-height:119px!important;border-radius:22px!important;padding:14px 7px!important;font-size:12px!important}.quick button span{font-size:34px!important}.fruit-promo{flex-wrap:wrap;gap:8px;padding:13px}.fruit-promo-art{font-size:27px;min-width:58px}.fruit-promo-copy{flex-basis:calc(100% - 70px)}.fruit-promo .btn{width:100%;margin-top:3px}.metrics{gap:11px!important}.metric{padding:17px 12px!important;border-radius:22px!important}.metric .label{font-size:11px!important}.metric strong{font-size:22px!important}.nav button{font-size:9px!important;padding:8px 1px!important}.nav button span{font-size:21px!important}}
+@media(prefers-reduced-motion:reduce){.hero,.hero:after,.quick button,.quick button span,.view.active{animation:none!important;transition:none!important}}
+
 </style>
 </head>
 <body>
@@ -130,8 +166,9 @@ html{background:#eef7f0}body{background:radial-gradient(ellipse at 0% 0%,#d8f0dc
 <header class="top"><div class="brand"><div class="logo">🍏</div><div><h1>میوه‌یار</h1><p>مدیریت هوشمند میوه‌فروشی</p></div></div><div class="datebox">امروز<strong id="today">—</strong><span id="clock"></span></div></header>
 <main>
 <section class="view active" id="view-home">
-<div class="hero"><small>داشبورد کسب‌وکار</small><h2>خوش اومدی 👋</h2><p>خرید بار، فروش، غرفه‌ها و حساب‌وکتاب روزانه‌ات را از یک‌جا مدیریت کن.</p></div>
-<div class="quick"><button onclick="openForm('load')"><span>🚚</span>ثبت خرید بار</button><button onclick="openForm('sale')"><span>🧾</span>ثبت فروش</button><button onclick="openForm('expense')"><span>💸</span>ثبت هزینه</button><button onclick="switchView('reports')"><span>📊</span>گزارش‌ها</button></div>
+<div class="hero"><small>داشبورد کسب‌وکار</small><h2>سلام، خوش برگشتی! 👋</h2><p>امروز میوه‌یار کنارته تا خرید بار، فروش و حساب‌وکتاب روزانه‌ات را ساده‌تر مدیریت کنی.</p></div>
+<div class="quick"><button onclick="openForm('load')"><span>🛒</span>خرید بار</button><button onclick="openForm('sale')"><span>🧾</span>فروش روزانه</button><button onclick="switchView('products')"><span>🍎</span>محصولات</button><button onclick="switchView('people')"><span>👥</span>پرسنل</button></div>
+<div class="fruit-promo"><div class="fruit-promo-art" aria-hidden="true">🍊🍇🍎</div><div class="fruit-promo-copy"><strong>سود بیشتر با مدیریت بهتر</strong><span>گزارش‌ها و هزینه‌ها را یک‌جا بررسی کن.</span></div><button class="btn" onclick="switchView('reports')">مشاهده گزارش‌ها ←</button></div>
 <div class="metrics"><div class="metric"><div class="label">خرید امروز</div><strong id="m-buy">۰ تومان</strong><small>مجموع مبلغ پایه بارهای امروز</small></div><div class="metric"><div class="label">فروش امروز</div><strong id="m-sale">۰ تومان</strong><small>ثبت‌شده در فروشگاه</small></div><div class="metric"><div class="label">هزینه‌های امروز</div><strong id="m-expense">۰ تومان</strong><small>هزینه‌های جداگانه</small></div><div class="metric"><div class="label">وزن خرید امروز</div><strong id="m-weight">۰ کیلو</strong><small>تمام غرفه‌ها</small></div></div>
 <div class="sectionhead"><h3>آخرین خریدهای بار</h3><button class="btn secondary small" onclick="switchView('loads')">مشاهده همه</button></div><div class="list" id="recent-loads"></div>
 <div class="notice" style="margin-top:14px">نسخه شروع میوه‌یار: اطلاعات فعلاً روی همین مرورگر ذخیره می‌شود. از بخش «بیشتر» مرتب نسخه پشتیبان بگیر. همگام‌سازی ابری هنوز فعال نیست.</div>
