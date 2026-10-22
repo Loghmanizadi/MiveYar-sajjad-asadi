@@ -47,6 +47,33 @@ body{background:radial-gradient(ellipse at 8% 0%,#e3f5e9 0,transparent 34%),radi
 @media(max-width:699px){.app{padding-left:12px;padding-right:12px}.hero{border-radius:23px}.quick button{border-radius:17px}.metric{border-radius:19px;padding:15px 13px}.item{border-radius:17px}.btn{border-radius:13px}.nav{background:#fafffcf2}.nav button.active{transform:translateY(-2px)}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
 
+
+/* Mioveyar 3D refresh v2 */
+:root{--shadow:0 14px 0 #0b503015,0 24px 48px #064e3b22;--shadow-raised:0 20px 0 #0b503018,0 32px 58px #064e3b30}
+body{background:radial-gradient(ellipse at 5% 8%,#c9f1db 0,transparent 38%),radial-gradient(ellipse at 95% 30%,#d6f0e2 0,transparent 35%),linear-gradient(180deg,#edf8f1 0%,#f8fbf9 48%,#e9f3ed 100%);background-attachment:fixed}
+.hero{position:relative;overflow:hidden;border:1px solid #ffffff75!important;background:linear-gradient(115deg,#064e3b 0%,#087f5b 40%,#10a875 70%,#087f5b 100%)!important;background-size:220% 220%!important;animation:heroGlow 9s ease-in-out infinite;box-shadow:inset 0 2px 0 #ffffff55,inset 0 -8px 18px #003c2c25,0 10px 0 #075c461a,0 22px 42px #075c4635!important}
+.hero:before{content:"";position:absolute;inset:-40%;width:auto;height:auto;border-radius:45%;background:linear-gradient(115deg,transparent 35%,#ffffff17 48%,transparent 60%);transform:translateX(-65%) rotate(-12deg);animation:heroShine 7s ease-in-out infinite;z-index:0}
+.hero:after{font-size:clamp(100px,24vw,150px)!important;opacity:.24;filter:drop-shadow(0 18px 12px #003c2c60)!important;animation:fruitFloat 3.8s ease-in-out infinite!important}
+.hero>*{position:relative;z-index:1}
+.quick{perspective:900px}
+.quick button{min-height:126px!important;border:1px solid #ffffff!important;border-bottom:7px solid #d9e8df!important;border-radius:25px!important;background:linear-gradient(145deg,#fff 0%,#fafffc 55%,#e9f5ee 100%)!important;box-shadow:inset 0 2px 0 #fff,0 5px 0 #bcd2c4,0 14px 24px #164b3520!important;transform:translateY(0);transition:transform .2s ease,box-shadow .2s ease!important;animation:cardEntrance .7s cubic-bezier(.2,.8,.2,1) both}
+.quick button:nth-child(2){animation-delay:.07s}.quick button:nth-child(3){animation-delay:.14s}.quick button:nth-child(4){animation-delay:.21s}
+.quick button span{display:inline-block!important;font-size:39px!important;filter:drop-shadow(0 7px 3px #123f3030)!important;animation:iconBob 3.2s ease-in-out infinite;transform-origin:50% 80%}
+.metric,.panel,.item{border:1px solid #ffffff!important;border-bottom:7px solid #dce9e1!important;border-radius:25px!important;background:linear-gradient(145deg,#fff 0%,#fbfefc 55%,#eef7f1 100%)!important;box-shadow:inset 0 2px 0 #fff,0 5px 0 #c7d9ce,0 14px 25px #164b3518!important;transition:transform .22s ease,box-shadow .22s ease!important}
+.metric{padding-top:22px!important;padding-bottom:22px!important}
+.metric:before{height:5px!important;opacity:1!important;box-shadow:0 2px 7px #087f5b22}
+.metric strong{display:block;text-shadow:0 2px 0 #ffffff;transform:translateZ(12px)}
+.btn{border-bottom:4px solid #064f3c!important;box-shadow:inset 0 2px 0 #ffffff50,0 5px 0 #064e3b22,0 12px 20px #087f5b25!important;transition:transform .15s ease,filter .15s ease!important}
+.btn:active,.quick button:active{transform:translateY(5px) scale(.98)!important;filter:saturate(1.15);box-shadow:inset 0 2px 4px #064e3b20,0 1px 0 #064e3b15!important;border-bottom-width:1px!important}
+.nav{background:#f8fffbf5!important;backdrop-filter:blur(18px);box-shadow:0 -10px 35px #164b3518!important;border-top:1px solid #ffffff!important}
+.nav button.active{background:linear-gradient(145deg,#e4f7ed,#cdeedd)!important;border:1px solid #ffffff!important;box-shadow:inset 0 2px 0 #fff,0 5px 0 #b9ddc9,0 9px 18px #087f5b18!important}
+@keyframes heroGlow{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+@keyframes heroShine{0%,20%{transform:translateX(-70%) rotate(-12deg)}65%,100%{transform:translateX(70%) rotate(-12deg)}}
+@keyframes cardEntrance{from{opacity:.3;transform:translateY(14px) rotateX(7deg)}to{opacity:1;transform:translateY(0) rotateX(0)}}
+@keyframes iconBob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-5px) rotate(2deg)}}
+@media(hover:hover) and (pointer:fine){.quick button:hover,.metric:hover,.panel:hover,.item:hover{transform:translateY(-6px) rotateX(2deg)!important;box-shadow:inset 0 2px 0 #fff,0 6px 0 #bcd2c4,0 25px 40px #164b3528!important}}
+@media(prefers-reduced-motion:reduce){.hero,.hero:before,.hero:after,.quick button,.quick button span{animation:none!important}}
+
 </style>
 </head>
 <body>
