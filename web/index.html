@@ -87,4 +87,5 @@ document.getElementById('record-form').addEventListener('submit',e=>{if(formType
 if('serviceWorker' in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
 setDate();setInterval(setDate,30000);renderAll();
 </script>
+<script src="./daily-closing.js"></script>
 </body></html>
