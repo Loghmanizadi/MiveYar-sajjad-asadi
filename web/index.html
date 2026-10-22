@@ -209,9 +209,78 @@ body{background:radial-gradient(ellipse at 0 0,#d2efd9 0,transparent 34%),radial
 @media(max-width:520px){.app{padding-left:12px!important;padding-right:12px!important}.top{gap:8px!important}.brand h1{font-size:22px!important}.brand p{font-size:10px!important}.hero{min-height:192px!important;padding:22px 18px!important}.hero p{max-width:88%!important;font-size:12px!important}.quick button{min-height:119px!important;border-radius:22px!important}.quick button span{font-size:34px!important}.fruit-promo{flex-wrap:wrap;padding:13px}.fruit-promo-art{min-width:60px;font-size:28px}.fruit-promo-copy{flex-basis:calc(100% - 75px)}.fruit-promo .btn{width:100%;margin-top:4px}.metric{padding:17px 12px!important;border-radius:21px!important}.metric .label{font-size:11px!important}.metric strong{font-size:22px!important}.nav button{font-size:9px!important}.nav button span{font-size:20px!important}}
 @media(prefers-reduced-motion:reduce){.hero:after,.quick button,.quick button span{animation:none!important;transition:none!important}}
 
+
+/* Screen 1 — Welcome splash, based on the supplied Mioveyar reference */
+.mv-welcome{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;overflow-y:auto;isolation:isolate;padding:calc(18px + env(safe-area-inset-top)) 22px calc(20px + env(safe-area-inset-bottom));background:radial-gradient(ellipse at 50% 28%,#fffef4 0%,#f5f8e9 37%,#e2f2df 74%,#cce6c8 100%);color:#174b36;transition:opacity .42s ease,visibility .42s ease}
+.mv-welcome:before,.mv-welcome:after{content:"";position:absolute;z-index:-1;border-radius:50%;pointer-events:none}
+.mv-welcome:before{width:310px;height:310px;left:-155px;top:20%;background:radial-gradient(circle,#b7db9b8a,transparent 68%)}
+.mv-welcome:after{width:360px;height:360px;right:-190px;bottom:2%;background:radial-gradient(circle,#a8d7a080,transparent 70%)}
+.mv-welcome.is-hidden{opacity:0;visibility:hidden;pointer-events:none}
+.mv-welcome-top{display:flex;align-items:center;gap:8px;align-self:center;margin:5px 0 4px;color:#3d7350;font-size:11px;font-weight:700;letter-spacing:.1px}
+.mv-status-dot{width:7px;height:7px;border-radius:50%;background:#15935b;box-shadow:0 0 0 4px #15935b18}
+.mv-welcome-content{width:min(100%,430px);min-height:calc(100% - 30px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 3px 5px}
+.mv-welcome-art{position:relative;width:min(100%,340px);height:clamp(215px,34vh,300px);display:flex;align-items:flex-end;justify-content:center;margin:4px auto 0;isolation:isolate}
+.mv-welcome-art:before{content:"";position:absolute;z-index:-1;width:78%;height:78%;top:9%;left:11%;border-radius:50%;background:radial-gradient(circle,#fffdf0 0%,#edf5db9c 54%,transparent 73%);filter:blur(2px)}
+.mv-basket-svg{position:absolute;bottom:3%;left:0;width:100%;height:48%;filter:drop-shadow(0 15px 10px #345f3329)}
+.mv-art-fruits{position:absolute;bottom:34%;width:94%;height:57%;display:flex;align-items:flex-end;justify-content:center;gap:0;filter:drop-shadow(0 7px 5px #345f331c)}
+.mv-art-fruits .fruit{position:absolute;display:block;line-height:1;filter:drop-shadow(0 4px 3px #315b3020);animation:mvWelcomeFruit 4.2s ease-in-out infinite}
+.mv-art-fruits .fruit-orange{font-size:clamp(42px,12vw,66px);left:11%;bottom:5%;transform:rotate(-13deg);animation-delay:-.8s}
+.mv-art-fruits .fruit-grape{font-size:clamp(43px,12vw,64px);left:28%;bottom:22%;animation-delay:-2s}
+.mv-art-fruits .fruit-apple{font-size:clamp(48px,13vw,70px);left:47%;bottom:5%;animation-delay:-1.2s}
+.mv-art-fruits .fruit-banana{font-size:clamp(44px,12vw,65px);right:8%;bottom:13%;transform:rotate(14deg);animation-delay:-2.6s}
+.mv-art-fruits .fruit-strawberry{font-size:clamp(35px,9vw,50px);left:31%;bottom:-2%;animation-delay:-1.7s}
+.mv-art-fruits .fruit-pear{font-size:clamp(39px,10vw,55px);right:27%;bottom:26%;animation-delay:-.4s}
+.mv-art-leaf{position:absolute;z-index:2;font-size:clamp(34px,9vw,49px);filter:drop-shadow(0 5px 5px #315b3020)}
+.mv-art-leaf.leaf-one{left:7%;top:5%;transform:rotate(-30deg)}.mv-art-leaf.leaf-two{right:7%;top:0;transform:rotate(30deg)}
+.mv-art-spark{position:absolute;color:#d3ad50;font-size:27px}.spark-one{top:18%;right:15%}.spark-two{top:35%;left:10%;font-size:19px}
+.mv-welcome-brand{display:flex;align-items:center;gap:10px;margin-top:2px;color:#086644;font-size:clamp(37px,10vw,51px);font-weight:900;letter-spacing:-1.5px;text-shadow:0 3px 0 #ffffff,0 7px 18px #0a65301c}
+.mv-brand-mark{width:43px;height:43px;display:grid;place-items:center;border-radius:15px;background:linear-gradient(145deg,#20a76b,#08623f);color:#fff;font-size:26px;box-shadow:inset 0 2px 0 #ffffff7a,0 5px 0 #0a633a20,0 10px 18px #0a633a22;text-shadow:none}
+.mv-welcome h1{margin:10px 0 2px;font-size:clamp(17px,4.5vw,21px);font-weight:800;color:#20583d;line-height:1.7}
+.mv-welcome-tagline{margin:1px 0 8px;color:#7d9b75;font-size:12px;font-weight:700}
+.mv-welcome-desc{max-width:315px;margin:0 auto 19px;color:#577660;font-size:13px;line-height:2.05}
+.mv-start-button{width:min(100%,290px);min-height:56px;display:flex;align-items:center;justify-content:center;gap:13px;border:1px solid #ffffffa0;border-bottom:5px solid #075338;border-radius:19px;background:linear-gradient(135deg,#13a96e 0%,#078451 60%,#06643f 100%);color:#fff;font-weight:800;font-size:16px;box-shadow:inset 0 2px 0 #ffffff66,0 5px 0 #07533820,0 13px 23px #08623f35;transition:transform .15s ease,box-shadow .15s ease}
+.mv-start-button span{font-size:22px;transition:transform .2s ease}.mv-start-button:active{transform:translateY(3px);box-shadow:inset 0 2px 0 #ffffff44,0 2px 0 #07533820,0 6px 12px #08623f22}.mv-start-button:hover span{transform:translateX(-4px)}
+.mv-welcome-foot{display:flex;align-items:center;gap:6px;margin-top:17px;color:#86a18a;font-size:10px}.mv-welcome-foot span{font-size:14px}
+.mv-welcome-leaf{position:absolute;z-index:-1;opacity:.11;filter:blur(.2px);font-size:90px;pointer-events:none}.mv-leaf-a{top:18%;left:-23px;transform:rotate(-38deg)}.mv-leaf-b{right:-27px;bottom:17%;font-size:110px;transform:rotate(28deg)}
+@keyframes mvWelcomeFruit{0%,100%{translate:0 0;rotate:0deg}50%{translate:0 -5px;rotate:2deg}}
+@media(max-height:700px){.mv-welcome{padding-top:calc(10px + env(safe-area-inset-top))}.mv-welcome-art{height:clamp(160px,28vh,205px)}.mv-welcome-brand{font-size:36px}.mv-welcome h1{font-size:16px}.mv-welcome-desc{margin-bottom:12px}.mv-start-button{min-height:50px}.mv-welcome-foot{margin-top:10px}}
+@media(min-width:700px){.mv-welcome-art{height:285px}.mv-welcome-content{padding-bottom:20px}}
+@media(prefers-reduced-motion:reduce){.mv-art-fruits .fruit{animation:none!important}.mv-welcome,.mv-start-button{transition:none!important}}
+
 </style>
 </head>
 <body>
+
+<!-- Mioveyar Screen 1: Welcome / Start -->
+<section id="mv-welcome" class="mv-welcome" aria-label="صفحه شروع میوه‌یار">
+  <div class="mv-welcome-leaf mv-leaf-a" aria-hidden="true">🍃</div>
+  <div class="mv-welcome-leaf mv-leaf-b" aria-hidden="true">🌿</div>
+  <div class="mv-welcome-top"><span class="mv-status-dot"></span><span>مدیریت هوشمند میوه و تره‌بار</span></div>
+  <div class="mv-welcome-content">
+    <div class="mv-welcome-art" aria-label="سبد میوه تازه">
+      <span class="mv-art-leaf leaf-one">🌿</span><span class="mv-art-leaf leaf-two">🍃</span>
+      <div class="mv-art-fruits"><span class="fruit fruit-orange">🍊</span><span class="fruit fruit-grape">🍇</span><span class="fruit fruit-apple">🍎</span><span class="fruit fruit-banana">🍌</span><span class="fruit fruit-strawberry">🍓</span><span class="fruit fruit-pear">🍐</span></div>
+      <svg class="mv-basket-svg" viewBox="0 0 320 142" role="img" aria-label="سبد حصیری">
+        <defs><linearGradient id="basketBody" x1="0" y1="0" x2="0.15" y2="1"><stop offset="0" stop-color="#e9bd70"/><stop offset=".55" stop-color="#bd7c35"/><stop offset="1" stop-color="#875026"/></linearGradient><linearGradient id="basketRim" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f8d998"/><stop offset="1" stop-color="#b97630"/></linearGradient></defs>
+        <ellipse cx="160" cy="124" rx="126" ry="12" fill="#145b3a" opacity=".14"/>
+        <path d="M49 34 Q160 4 271 34 L247 103 Q160 132 73 103 Z" fill="url(#basketBody)" stroke="#9a612c" stroke-width="3"/>
+        <path d="M57 47 Q160 72 263 47 M62 62 Q160 87 258 62 M67 78 Q160 102 253 78 M72 93 Q160 116 248 93" fill="none" stroke="#f3d092" stroke-width="5" opacity=".85"/>
+        <path d="M84 29 Q160 -12 236 29" fill="none" stroke="#b87935" stroke-width="12" stroke-linecap="round"/>
+        <path d="M84 29 Q160 -12 236 29" fill="none" stroke="#f3cf8c" stroke-width="5" stroke-linecap="round"/>
+        <ellipse cx="160" cy="35" rx="116" ry="19" fill="url(#basketRim)" stroke="#9a612c" stroke-width="3"/>
+        <ellipse cx="160" cy="33" rx="104" ry="12" fill="#6a9d47" opacity=".72"/>
+      </svg>
+      <span class="mv-art-spark spark-one">✦</span><span class="mv-art-spark spark-two">✧</span>
+    </div>
+    <div class="mv-welcome-brand"><span class="mv-brand-mark">م</span><span>میوه‌یار</span></div>
+    <h1>مدیریت هوشمند میوه و تره‌بار</h1>
+    <p class="mv-welcome-tagline">ساده، سریع و مطمئن</p>
+    <p class="mv-welcome-desc">خرید بار، فروش، محصولات و حساب‌وکتاب روزانه‌ات را یک‌جا مدیریت کن.</p>
+    <button type="button" class="mv-start-button" onclick="startMioveyar()">شروع کنید <span aria-hidden="true">←</span></button>
+    <div class="mv-welcome-foot"><span>🍏</span> یک شروع تازه برای کسب‌وکار تو</div>
+  </div>
+</section>
+
 <div class="app">
 <header class="top"><div class="brand"><div class="logo">🍏</div><div><h1>میوه‌یار</h1><p>مدیریت هوشمند میوه‌فروشی</p></div></div><div class="datebox">امروز<strong id="today">—</strong><span id="clock"></span></div></header>
 <main>
@@ -247,6 +316,7 @@ let db=loadDB(),editing=null,formType=null;
 function loadDB(){try{return {...structuredClone(seed),...JSON.parse(localStorage.getItem(KEY)||'{}')}}catch{return structuredClone(seed)}}
 function persist(){localStorage.setItem(KEY,JSON.stringify(db));renderAll()}
 function toast(s){let t=document.getElementById('toast');t.textContent=s;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2600)}
+function startMioveyar(){const screen=document.getElementById('mv-welcome');if(screen){screen.classList.add('is-hidden');screen.setAttribute('aria-hidden','true');setTimeout(()=>screen.remove(),450)}window.scrollTo(0,0)}
 function switchView(v){document.querySelectorAll('.view').forEach(x=>x.classList.toggle('active',x.id==='view-'+v));document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('active',x.dataset.view===v));if(v==='reports')renderReport();window.scrollTo(0,0)}
 function setDate(){document.getElementById('today').textContent=today();document.getElementById('clock').textContent=new Intl.DateTimeFormat('fa-IR',{timeZone:'Asia/Tehran',hour:'2-digit',minute:'2-digit'}).format(new Date())}
 const PACKAGE_TYPES=['سبد','جعبه','کارتن','گونی','کیسه','تور','سایر'];
