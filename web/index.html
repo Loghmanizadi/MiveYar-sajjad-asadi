@@ -2,7 +2,7 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#087f5b"><meta name="description" content="میوه‌یار؛ مدیریت خرید بار، فروش، غرفه‌ها و حساب‌وکتاب میوه‌فروشی">
+<meta name="theme-color" content="#064b3a"><meta name="description" content="میوه‌یار؛ مدیریت خرید بار، فروش، غرفه‌ها و حساب‌وکتاب میوه‌فروشی">
 <link rel="manifest" href="./manifest.webmanifest">
 <title>میوه‌یار | مدیریت میوه‌فروشی</title>
 <style>
@@ -457,6 +457,88 @@ input,select,textarea{direction:rtl!important;text-align:right!important}
 #overlay.sale-screen .form-actions{bottom:calc(72px + env(safe-area-inset-bottom));width:min(calc(100% - 28px),452px);}
 #overlay.sale-screen .form-actions button[type="submit"]{min-height:54px;border-radius:18px;font-size:17px;letter-spacing:0;}
 @media(min-width:600px){#overlay.sale-screen .modal{max-width:520px;}}
+
+
+/* Mioveyar Emerald & Gold visual refresh — presentation only */
+:root{
+ --green:#087f5b;--deep:#064b3a;--gold:#c99b3c;--bg:#f3f6f3;--card:#fff;
+ --ink:#17352b;--muted:#6d8177;--line:#dfe8e1;--shadow:0 10px 28px rgba(11,65,45,.075);
+ --emerald-soft:#e8f3ed;--gold-soft:#fbf4e5;
+}
+html{scroll-behavior:smooth}
+body{background:radial-gradient(ellipse at 8% 0%,rgba(201,155,60,.07),transparent 34%),var(--bg);color:var(--ink);letter-spacing:-.1px}
+.app{max-width:1220px;padding-left:clamp(12px,2.2vw,26px);padding-right:clamp(12px,2.2vw,26px)}
+.top{padding-top:20px;padding-bottom:18px}
+.logo{background:linear-gradient(145deg,#0b9367,#064b3a);border:1px solid rgba(255,255,255,.25);box-shadow:0 7px 18px rgba(8,127,91,.23)}
+.brand h1{letter-spacing:-.5px}
+.datebox{border-color:#e7d7ad;box-shadow:0 3px 12px rgba(85,66,20,.04)}
+.datebox strong{color:var(--deep)}
+.hero{background:linear-gradient(120deg,#063f31 0%,#087f5b 62%,#15966b 100%);border:1px solid rgba(201,155,60,.45);box-shadow:0 14px 30px rgba(6,75,58,.15)}
+.hero:before{content:"";position:absolute;inset:0 auto 0 0;width:5px;background:linear-gradient(var(--gold),#f2d895);border-radius:0 4px 4px 0}
+.hero h2{letter-spacing:-.5px}
+.quick{gap:11px}
+.quick button{border:1px solid var(--line);box-shadow:0 5px 16px rgba(16,62,43,.045);transition:transform .18s,border-color .18s,box-shadow .18s}
+.quick button:hover{transform:translateY(-2px);border-color:#d7bd7a;box-shadow:0 9px 22px rgba(16,62,43,.09)}
+.quick button span{color:var(--green)}
+.metric{border-color:var(--line);box-shadow:0 5px 18px rgba(16,62,43,.035);position:relative;overflow:hidden}
+.metric:before{content:"";position:absolute;right:0;top:14px;bottom:14px;width:3px;border-radius:4px;background:linear-gradient(var(--green),var(--gold))}
+.metric .label{padding-right:5px}
+.metric strong{color:var(--deep);font-variant-numeric:tabular-nums;line-height:1.55}
+.sectionhead{margin-top:24px}
+.sectionhead h3{font-weight:800;letter-spacing:-.3px}
+.btn{background:linear-gradient(135deg,#0b8b62,#066044);box-shadow:0 4px 10px rgba(8,127,91,.13);transition:transform .15s,filter .15s}
+.btn:hover{filter:brightness(1.04);transform:translateY(-1px)}
+.btn.secondary{background:var(--emerald-soft);color:var(--deep);box-shadow:none;border:1px solid #d7e8dd}
+.btn.danger{background:#fff0ee;color:#b33229;border:1px solid #f3d7d3;box-shadow:none}
+.panel{border-color:var(--line);box-shadow:0 7px 22px rgba(16,62,43,.04)}
+.nav{background:rgba(255,255,255,.94);border-top:1px solid #dce7df;box-shadow:0 -7px 24px rgba(10,55,37,.045)}
+.nav button{transition:background .15s,color .15s}
+.nav button.active{background:linear-gradient(135deg,#e6f4ec,#f7f1df);color:var(--deep);box-shadow:inset 0 0 0 1px rgba(201,155,60,.22)}
+.nav button.active span{color:var(--green)}
+.field label{color:#315647}
+.field input,.field select,.field textarea,.searchrow input{background:#fcfdfb;border-color:#d8e4dc;transition:border-color .15s,box-shadow .15s}
+.field input:focus,.field select:focus,.field textarea:focus,.searchrow input:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(8,127,91,.12)}
+.item{border-color:var(--line);box-shadow:0 4px 15px rgba(16,62,43,.025);transition:border-color .15s,box-shadow .15s}
+.item:hover{border-color:#d6c18b;box-shadow:0 8px 22px rgba(16,62,43,.06)}
+.item h4{font-weight:800}
+.amount{color:var(--deep);font-variant-numeric:tabular-nums}
+.chip{background:#edf5f0;color:#315d4a;border:1px solid #e0ece4}
+.pill{background:var(--gold-soft);color:#80601a;border:1px solid #f0dfb4}
+.empty{background:linear-gradient(145deg,#fff,#f8faf8);border:1px dashed #d8e4dc;border-radius:15px}
+.empty span{filter:saturate(.8)}
+.overlay{backdrop-filter:blur(4px)}
+.modal{border:1px solid #e4e9e3;box-shadow:0 -12px 40px rgba(4,45,31,.16)}
+.modalhead{padding-bottom:12px;border-bottom:1px solid var(--line)}
+.modalhead h3{font-weight:800;color:var(--deep)}
+.x{background:#edf4ef;color:var(--deep);border:1px solid #dce8df}
+.notice{background:linear-gradient(110deg,#fff8e5,#fffdf6);border-color:#ead8a7;color:#71581d}
+.tablewrap{border:1px solid var(--line);border-radius:12px}
+table{border-collapse:separate;border-spacing:0}
+th{background:#edf4ef;color:#315647;font-weight:800}
+th,td{border-bottom:1px solid #e4ebe5}
+tr:last-child td{border-bottom:0}
+tr:nth-child(even) td{background:#fbfcfa}
+.form-actions{border-top:1px solid var(--line)}
+.toast{box-shadow:0 10px 30px rgba(8,42,29,.18);border:1px solid rgba(201,155,60,.35)}
+@media(min-width:760px){
+ .metrics{grid-template-columns:repeat(4,minmax(0,1fr))}
+ .hero{padding:28px 30px;border-radius:24px}
+ .hero h2{font-size:27px}
+ .quick button{padding:16px 12px}
+ .panel{padding:18px}
+ .list{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .modal{border-radius:22px;align-self:center;margin:20px;max-height:88dvh}
+ .overlay{align-items:center;padding:16px}
+}
+@media(max-width:420px){
+ .brand h1{font-size:18px}
+ .hero{padding:17px;border-radius:19px}
+ .hero h2{font-size:21px}
+ .quick button{font-size:11px;padding:11px 5px}
+ .metric{padding:12px}
+ .metric strong{font-size:17px}
+ .nav button{min-width:0;flex:1;padding:7px 2px}
+}
 
 </style>
 </head>
