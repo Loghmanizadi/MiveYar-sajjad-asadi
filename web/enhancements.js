@@ -91,4 +91,64 @@
   // Date stamps for staff/driver records are attached at creation where possible without changing prior records.
   const oldSaveForm=saveForm;window.saveForm=function(e){const prior=formType;oldSaveForm(e);if(['person','driver'].includes(prior)){const key=prior==='person'?'people':'drivers';const latest=db[key]?.[0];if(latest&&!latest.createdAt){latest.createdAt=timestamp();persist()}}};
   renderPeople();renderAdvances();
+
+  // Visual-only emerald and gold refresh. No financial data or calculations are touched.
+  const visualTheme=document.createElement('style');
+  visualTheme.id='miveyar-emerald-gold-theme';
+  visualTheme.textContent=`
+    :root{
+      --green:#087f5b;--deep:#064e3b;--gold:#c89b3c;--bg:#f5f8f5;
+      --card:#fff;--ink:#18352c;--muted:#71847c;--line:#e2e9e1;
+      --shadow:0 10px 28px #064e3b12;
+    }
+    body{background:radial-gradient(ellipse at 5% 0%,#e2f2e7 0,transparent 34%),linear-gradient(180deg,#f5f8f5 0%,#f8faf8 52%,#eff5f0 100%);color:var(--ink)}
+    .app{max-width:1240px}
+    .top{padding-top:20px;padding-bottom:17px}
+    .logo{background:linear-gradient(145deg,#0b9b6d,#064e3b);border:1px solid #d8b35b;box-shadow:0 5px 0 #064e3b14,0 10px 22px #087f5b28}
+    .brand h1{letter-spacing:-.35px}
+    .datebox{border-color:#e6d7ad;box-shadow:0 5px 18px #6b51100a}
+    .hero{background:linear-gradient(120deg,#043e30 0%,#087f5b 62%,#0b9669 100%)!important;border:1px solid #d4b15b!important;box-shadow:inset 0 1px 0 #ffffff40,0 5px 0 #064e3b18,0 18px 36px #064e3b22!important}
+    .hero h2{letter-spacing:-.45px}
+    .quick button,.metric,.panel,.item{border-color:#e3eae3;box-shadow:0 4px 0 #064e3b06,0 9px 24px #064e3b08;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+    .quick button{border-top:2px solid #d2ad54;font-size:12px}
+    .quick button span{filter:saturate(.9)}
+    .metric{position:relative;overflow:hidden;background:linear-gradient(150deg,#fff,#fbfdfb)}
+    .metric:before{background:linear-gradient(90deg,#d4ad50,#0b9669,#064e3b)}
+    .metric strong{color:#075c46;font-variant-numeric:tabular-nums}
+    .sectionhead h3{position:relative;padding-right:11px}
+    .sectionhead h3:before{content:"";position:absolute;right:0;top:4px;bottom:4px;width:3px;border-radius:4px;background:linear-gradient(#d5ad4f,#087f5b)}
+    .btn{background:linear-gradient(135deg,#0b9669,#087f5b 60%,#064e3b);box-shadow:inset 0 1px 0 #ffffff35,0 3px 0 #064e3b16,0 7px 14px #087f5b14}
+    .btn.secondary{background:linear-gradient(135deg,#f5f8ed,#e6f2e8);color:#075c46;border:1px solid #dce8d8;box-shadow:0 3px 0 #064e3b08}
+    .btn.danger{border:1px solid #f2d8d3}
+    .field label{color:#315748}
+    .field input,.field select,.field textarea,.searchrow input{border-color:#dce6dc;background:#fcfefc;border-radius:12px}
+    .field input:focus,.field select:focus,.field textarea:focus,.searchrow input:focus{border-color:#b89a4d;box-shadow:0 0 0 3px #c89b3c20,0 5px 12px #064e3b08}
+    .chip{background:#edf5ed;color:#315f4a;border:1px solid #e0ebdd}
+    .amount{color:#075c46}
+    .nav{background:#fffffff2;border-top:1px solid #e2e9e1;box-shadow:0 -7px 25px #064e3b0c}
+    .nav button.active{background:linear-gradient(145deg,#e9f4e9,#dcefe3);color:#075c46;box-shadow:inset 0 0 0 1px #d3e6d5}
+    .nav button.active span{filter:none}
+    .overlay{background:#092c22a8}
+    .modal{border:1px solid #d7e5d9;border-bottom:0;box-shadow:0 -12px 40px #042c201c}
+    .modalhead{padding-bottom:10px;border-bottom:1px solid #e5ece5}
+    .x{background:#eef4ec;color:#315748}
+    .notice{background:#fff9e9;border-color:#ead7a4;color:#73591d}
+    th{background:#edf5ed;color:#244c3c}
+    td,th{border-color:#e2e9e1}
+    @media(hover:hover) and (pointer:fine){
+      .quick button:hover,.metric:hover,.panel:hover,.item:hover{transform:translateY(-2px);border-color:#d2bd7b;box-shadow:0 5px 0 #064e3b08,0 14px 26px #064e3b12}
+      .btn:hover{filter:brightness(1.04)}
+    }
+    @media(max-width:699px){
+      .top{padding-top:14px}
+      .hero{border-radius:21px}
+      .quick{gap:8px}
+      .metric{padding:14px 12px}
+      .nav button{min-width:0;flex:1}
+      .nav button.active{border:1px solid #d9e8d9}
+    }
+    @media(prefers-reduced-motion:reduce){.quick button,.metric,.panel,.item,.btn{transition:none!important}}
+  `;
+  document.head.appendChild(visualTheme);
+
 })();
